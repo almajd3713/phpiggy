@@ -1,0 +1,18 @@
+{
+    "name": "almajd/phpiggy",
+    "description": "learning php/sql using this one",
+    "type": "project",
+    "authors": [
+        {
+            "name": "almajd3713",
+            "email": "almajd3713@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
