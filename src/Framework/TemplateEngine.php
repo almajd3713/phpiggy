@@ -11,12 +11,17 @@ class TemplateEngine {
     // starts output buffer
     ob_start();
     // Includes the template
-    include "{$this->basePath}/{$template}";
+    include $this->resolve($template);
     // Store current buffered data;
     $output = ob_get_contents();
     // Cleans the buffer since we already stored it
     ob_end_clean();
     return $output;
+  }
+
+  // Giving absolute path for template files
+  public function resolve(string $path) {
+    return "{$this->basePath}/{$path}";
   }
 
 }

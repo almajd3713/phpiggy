@@ -5,12 +5,13 @@ declare(strict_types = 1);
 
 require __DIR__ . "/../../vendor/autoload.php";
 
-use App\Controllers\HomeController;
 use Framework\App;
 
+/**
+ * @var App app
+ */
 $app = new App();
+include __DIR__ . "/routes.php";
 
-
-$app->get('', [HomeController:: class, 'home']);
 
 return $app;
