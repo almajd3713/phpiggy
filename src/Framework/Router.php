@@ -21,7 +21,7 @@ class Router {
     return $path;
   }
 
-  public function dispatch(string $path, string $method) {
+  public function dispatch(string $path, string $method, Container $container = null) {
     $path = $this->normalizePath($path);
     $method = strtoupper($method);
     foreach ($this->routes as $route) {
@@ -30,7 +30,9 @@ class Router {
         !preg_match("#^{$route['path']}$#", $path)
       ) continue;
       [$class, $function] = $route['controller'];
-      $controllerInterface = new $class;
+      $controllerInterface = $container ? 
+        $container->resolve($class) :
+        new $class;
       $controllerInterface->$function();
     }
   }

@@ -7,3 +7,8 @@ function dd(mixed $val) {
   echo "</pre>";
   die();
 }
+
+function sanitize(mixed $value) {
+  // Turns html special characters into normal entities
+  return htmlspecialchars((string) $value);
+}
